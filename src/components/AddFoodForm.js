@@ -5,8 +5,23 @@ class AddFoodForm extends React.Component {
     name: '',
     calories: '',
     image: '',
+    quantity: 0,
     addFood: false,
   };
+
+  handleSubmit = (event) => {
+    event.preventDefault(); // preventing the reload
+    this.setState({addFood: false}) // hiding the form and presenting the btn
+    let newFood = {
+      name: this.state.name,
+      calories: this.state.calories,
+      image: this.state.image,
+      quantity: 0,
+    }
+    let newArr = [...this.props.foods];
+    newArr.push(newFood);
+    this.props.updateFoodArr(newArr);
+  }
 
   renderForm = () => {
     return (
@@ -63,20 +78,24 @@ class AddFoodForm extends React.Component {
   renderBtn = () => {
     return (
       <button className="button is-info" onClick={this.handleClick}>
-        +
+        Add food here
       </button>
     );
   };
   handleClick = () => {
-    this.setState({ addFood: true });
+    this.setState({ addFood: true }); // hiding the btn and presenting the form
   };
 
   render() {
     // console.log('add food state teste: ', this.state.addFood);
-    console.log('name no state: ', this.state.name);
-    console.log('calories no state: ', this.state.calories);
-    console.log('image no state: ', this.state.image);
-    return this.state.addFood ? this.renderForm() : this.renderBtn();
+    // console.log('name no state: ', this.state.name);
+    // console.log('calories no state: ', this.state.calories);
+    // console.log('image no state: ', this.state.image);
+    return (
+      <div>
+        {this.state.addFood ? this.renderForm() : this.renderBtn()}
+      </div>
+    );
   }
 }
 
