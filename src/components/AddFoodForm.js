@@ -35,6 +35,7 @@ class AddFoodForm extends React.Component {
               placeholder="Nome da Comida"
               name="name"
               onChange={this.handleChange}
+              value={this.state.name}
             />
           </div>
         </div>
@@ -48,6 +49,7 @@ class AddFoodForm extends React.Component {
               placeholder="Quantidade de calorias"
               name="calories"
               onChange={this.handleChange}
+              value={this.state.calories}
             />
           </div>
         </div>
@@ -60,11 +62,14 @@ class AddFoodForm extends React.Component {
               placeholder="Insira o url da comida"
               name="image"
               onChange={this.handleChange}
+              value={this.state.image}
             />
           </div>
         </div>
         <div className="control">
-          <button className="button is-link">Submit</button>
+          <button type="submit" className="button is-link">
+            Submit
+          </button>
         </div>
       </form>
     );

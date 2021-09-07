@@ -23,7 +23,7 @@ class App extends React.Component {
   // filterting based on the search input
   filteredFoodArr = (word) => {
     let filteredArr = this.state.foodArr.filter((food) => {
-      return food.name.toLowerCase().includes(word);
+      return food.name.toLowerCase().includes(word.toLowerCase());
     });
     this.setState({ filteredFoodArr: [...filteredArr] });
     if (word === '' || word === undefined || word === null) {
