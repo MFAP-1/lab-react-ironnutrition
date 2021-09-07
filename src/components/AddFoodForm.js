@@ -11,17 +11,17 @@ class AddFoodForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault(); // preventing the reload
-    this.setState({addFood: false}) // hiding the form and presenting the btn
+    this.setState({ addFood: false }); // hiding the form and presenting the btn
     let newFood = {
       name: this.state.name,
       calories: this.state.calories,
       image: this.state.image,
       quantity: 0,
-    }
+    };
     let newArr = [...this.props.foods];
     newArr.push(newFood);
     this.props.updateFoodArr(newArr);
-  }
+  };
 
   renderForm = () => {
     return (
@@ -87,14 +87,8 @@ class AddFoodForm extends React.Component {
   };
 
   render() {
-    // console.log('add food state teste: ', this.state.addFood);
-    // console.log('name no state: ', this.state.name);
-    // console.log('calories no state: ', this.state.calories);
-    // console.log('image no state: ', this.state.image);
     return (
-      <div>
-        {this.state.addFood ? this.renderForm() : this.renderBtn()}
-      </div>
+      <div>{this.state.addFood ? this.renderForm() : this.renderBtn()}</div>
     );
   }
 }

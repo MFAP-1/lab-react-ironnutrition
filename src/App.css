@@ -51,7 +51,6 @@ ul {
   margin-top: 30px;
   max-height: 70vh;
   max-width: 100vh;
-  
 }
 
 .food-list {
@@ -59,11 +58,15 @@ ul {
 }
 
 .food-table {
-  
 }
 
 /* Add form */
 
 form {
   width: 50%;
+}
+
+/* Remove from today's food */
+.button-remove {
+  margin-left: 10px;
 }
