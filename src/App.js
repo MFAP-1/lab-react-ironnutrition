@@ -39,10 +39,11 @@ class App extends React.Component {
       quantity: foodQuantity,
     };
 
-    let newArr = [...this.state.todaysFoodList];
+    let newArr = [...this.state.todaysFoodList]; // clone of todaysFoodList
     let currentFood = newArr.find((element) => element.name === foodName);
     let indexOfCurrentFood = newArr.indexOf(currentFood);
 
+    // case where the food does not exist in the Todays food
     if (indexOfCurrentFood === -1) {
       newArr.push(newFood);
     } else {

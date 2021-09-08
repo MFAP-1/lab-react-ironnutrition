@@ -19,7 +19,10 @@ class FoodBox extends React.Component {
     let existingCurrentFood = currentList.filter(
       (food) => food.name === this.state.clickedName
     );
-    if (prevState.clickedName !== this.state.clickedName) {
+    if (
+      prevState.clickedName !== this.state.clickedName &&
+      this.state.clickedQuantity !== 0
+    ) {
       this.props.addToTodaysFoodList(
         this.state.clickedName,
         this.state.clickedCalories,
@@ -27,7 +30,8 @@ class FoodBox extends React.Component {
       );
     } else if (
       prevProps.todaysFoodList === this.props.todaysFoodList &&
-      existingCurrentFood.length !== 0
+      existingCurrentFood.length !== 0 &&
+      this.state.clickedQuantity !== 0
     ) {
       this.props.addToTodaysFoodList(
         this.state.clickedName,
